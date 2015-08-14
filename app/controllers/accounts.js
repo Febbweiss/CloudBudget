@@ -143,8 +143,19 @@ module.exports = {
                     return Handler.errorHandler(errors, 400, response);
                 }
                 
-                response.status(201).json(entry);
-            })
+                Entry
+                    .find({account_id: account.id})
+                    .sort({date: -1})
+                    .exec(function(errors, entries) {
+                        if( errors ) {
+                            return Handler.errorHandler(errors, 500, response);
+                        }
+                    response.status(201).json({
+                        entry: entry,
+                        entries: entries
+                    });
+                });
+            });
         });
     },
     
@@ -177,7 +188,18 @@ module.exports = {
                         return Handler.errorHandler(errors, 400, response );
                     }
                     
-                    return response.json(entry);
+                    Entry
+                    .find({account_id: account.id})
+                    .sort({date: -1})
+                    .exec(function(errors, entries) {
+                        if( errors ) {
+                            return Handler.errorHandler(errors, 500, response);
+                        }
+                        response.status(200).json({
+                            entry: entry,
+                            entries: entries
+                        });
+                    });
                 });
             });    
         });
@@ -203,7 +225,18 @@ module.exports = {
                         return Handler.errorHandler(errors, 500, response);
                     }
                     
-                    return response.status(204).end();
+                    Entry
+                    .find({account_id: account.id})
+                    .sort({date: -1})
+                    .exec(function(errors, entries) {
+                        if( errors ) {
+                            return Handler.errorHandler(errors, 500, response);
+                        }
+                        response.status(204).json({
+                            entry: entry,
+                            entries: entries
+                        });
+                    });
                 });
            });
       });

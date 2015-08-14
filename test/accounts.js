@@ -231,7 +231,7 @@ describe('API /accounts', function() {
                 .post('/api/accounts/' + account_id + '/entries')
                 .send({
                     amount: 1000,
-                    date: new Date('2014-12-08')
+                    date: new Date('2015-08-14')
                 })
                 .set('Authorization', 'JWT ' + token)
                 .expect(201)
@@ -239,13 +239,21 @@ describe('API /accounts', function() {
                 .end(function(error, result) {
                     should.not.exist(error);
                     
-                    var entry = result.body;
+                    var entry = result.body.entry;
                     should.exist(entry);
                     entry.amount.should.be.equal(1000);
-                    new Date(entry.date).should.eql(new Date(2014, 11, 8));
+                    new Date(entry.date).should.eql(new Date(2015, 7, 14));
                     entry.type.should.be.equal('DEPOSIT');
                     should.not.exist(entry.category);
                     should.not.exist(entry.sub_category);
+                    
+                    var entries = result.body.entries;
+                    should.exist(entries);
+                    entries.should.be.instanceof(Array).and.have.lengthOf(2);
+                    new Date(entries[0].date).should.eql(new Date('2015-08-14'))
+                    entries[0].type.should.be.equal('DEPOSIT');
+                    entries[0].amount.should.be.equal(1000);
+                    
                     done();
                 });
           });
@@ -255,7 +263,7 @@ describe('API /accounts', function() {
                 .send({
                     label: 'test',
                     amount: -1000,
-                    date: new Date('2014-12-08')
+                    date: new Date('2015-08-15')
                 })
                 .set('Authorization', 'JWT ' + token)
                 .expect(201)
@@ -263,13 +271,22 @@ describe('API /accounts', function() {
                 .end(function(error, result) {
                     should.not.exist(error);
                     
-                    var entry = result.body;
+                    var entry = result.body.entry;
                     should.exist(entry);
                     entry.amount.should.be.equal(-1000);
-                    new Date(entry.date).should.eql(new Date(2014, 11, 8));
+                    new Date(entry.date).should.eql(new Date(2015, 7, 15));
                     entry.type.should.be.equal('BILL');
                     should.not.exist(entry.category);
                     should.not.exist(entry.sub_category);
+                    
+                    var entries = result.body.entries;
+                    should.exist(entries);
+                    entries.should.be.instanceof(Array).and.have.lengthOf(3);
+                    new Date(entries[0].date).should.eql(new Date('2015-08-15'))
+                    entries[0].type.should.be.equal('BILL');
+                    entries[0].amount.should.be.equal(-1000);
+                    
+                    
                     done();
                 });
           });
@@ -329,7 +346,7 @@ describe('API /accounts', function() {
                 })
                 .set('Authorization', 'JWT ' + token)
                 .end(function(error, result) {
-                    var entry_id = result.body._id;
+                    var entry_id = result.body.entry._id;
                     request(globalServer)
                         .put('/api/accounts/' + account_id + '/entries/' + entry_id)
                         .send({
@@ -343,11 +360,15 @@ describe('API /accounts', function() {
                         .end( function(errors, result) {
                             should.not.exist(errors);
                             
-                            var entry = result.body;
+                            var entry = result.body.entry;
                             should.exist(entry);
                             entry.label.should.be.equal('modified');
                             entry.amount.should.be.equal(55);
                             new Date(entry.date).should.eql(new Date(2014,11,9));
+                            
+                            var entries = result.body.entries;
+                            should.exist(entries);
+                            entries.should.be.instanceof(Array);
                             
                             done(); 
                         });
@@ -364,7 +385,7 @@ describe('API /accounts', function() {
                 })
                 .set('Authorization', 'JWT ' + token)
                 .end(function(error, result) {
-                    var entry_id = result.body._id;
+                    var entry_id = result.body.entry._id;
                     request(globalServer)
                         .put('/api/accounts/' + account_id + '/entries/' + entry_id)
                         .set('Authorization', 'JWT ' + token)
@@ -382,7 +403,6 @@ describe('API /accounts', function() {
                 })
                 .set('Authorization', 'JWT ' + token)
                 .end(function(error, result) {
-                    var entry_id = result.body._id;
                     request(globalServer)
                         .put('/api/accounts/' + account_id + '/entries/' + token)
                         .send({
@@ -499,7 +519,7 @@ describe('API /accounts', function() {
                 })
                 .set('Authorization', 'JWT ' + token)
                 .end(function(error, result) {
-                    var entry_id = result.body._id;
+                    var entry_id = result.body.entry._id;
                     request(globalServer)
                         .delete('/api/accounts/' + account_id + '/entries/' + entry_id)
                         .set('Authorization', 'JWT ' + token)
@@ -531,7 +551,7 @@ describe('API /accounts', function() {
                 })
                 .set('Authorization', 'JWT ' + token)
                 .end(function(error, result) {
-                    var entry_id = result.body._id;
+                    var entry_id = result.body.entry._id;
                     request(globalServer)
                         .delete('/api/accounts/' + account_id + '/entries/' + entry_id)
                         .set('Authorization', 'JWT ' + hacker_token)

@@ -16,5 +16,8 @@ var EntrySchema = new Schema({
     created_at:  {type: Date, default: Date.now}
 });
 
+EntrySchema.index({account_id: 1, date: -1, type: 1});
+EntrySchema.index({account_id: 1, date: -1, category: 1, sub_category: 1});
+
 var Entry = mongoose.model('Entry', EntrySchema);
 module.exports = Entry;
