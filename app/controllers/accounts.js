@@ -1,5 +1,5 @@
 var mongoose        = require('mongoose'),
-    ObjectId        = mongoose.Schema.Types.ObjectId,
+    ObjectId        = mongoose.Types.ObjectId,
     Account         = mongoose.model('Account'),
     Entry           = mongoose.model('Entry'),
     Handler         = require('../helpers/handler'),
@@ -65,6 +65,34 @@ var delete_account = function(account, callback) {
     });
 };
 
+var get_balance = function(account_id, callback) {
+    Entry.aggregate()
+        .match({account_id: new ObjectId(account_id)})
+        .group({_id : null, balance: { $sum: '$amount' }})
+        .exec(callback);
+};
+
+var list_entries = function(account_id, entry, callback ) {
+    get_balance(account_id, function(errors, data) {
+        if( errors ) {
+            return callback(errors);
+        }
+        
+        Entry
+            .find({account_id: account_id})
+            .sort({date: -1})
+            .exec(function(errors, entries) {
+                if( errors ) {
+                    return callback(errors);
+                }
+                return callback( null, {
+                    entry: entry,
+                    entries: entries,
+                    balance: data[0].balance
+                });
+        });
+    });
+}
 module.exports = {
     create : function(request, response) {
         var user = request.user,
@@ -142,18 +170,11 @@ module.exports = {
                 if( errors ) {
                     return Handler.errorHandler(errors, 400, response);
                 }
-                
-                Entry
-                    .find({account_id: account.id})
-                    .sort({date: -1})
-                    .exec(function(errors, entries) {
-                        if( errors ) {
-                            return Handler.errorHandler(errors, 500, response);
-                        }
-                    response.status(201).json({
-                        entry: entry,
-                        entries: entries
-                    });
+                list_entries(account.id, entry, function(errors, data) {
+                    if( errors ) {
+                        return Handler.errorHandler(errors, 500, response);
+                    }
+                    return response.status(201).json(data);                    
                 });
             });
         });
@@ -188,17 +209,11 @@ module.exports = {
                         return Handler.errorHandler(errors, 400, response );
                     }
                     
-                    Entry
-                    .find({account_id: account.id})
-                    .sort({date: -1})
-                    .exec(function(errors, entries) {
+                    list_entries(account.id, entry, function(errors, data) {
                         if( errors ) {
                             return Handler.errorHandler(errors, 500, response);
                         }
-                        response.status(200).json({
-                            entry: entry,
-                            entries: entries
-                        });
+                        return response.status(200).json(data);                    
                     });
                 });
             });    
@@ -224,18 +239,11 @@ module.exports = {
                     if( errors ) {
                         return Handler.errorHandler(errors, 500, response);
                     }
-                    
-                    Entry
-                    .find({account_id: account.id})
-                    .sort({date: -1})
-                    .exec(function(errors, entries) {
+                    list_entries(account.id, entry, function(errors, data) {
                         if( errors ) {
                             return Handler.errorHandler(errors, 500, response);
                         }
-                        response.status(204).json({
-                            entry: entry,
-                            entries: entries
-                        });
+                        return response.status(200).json(data);                    
                     });
                 });
            });

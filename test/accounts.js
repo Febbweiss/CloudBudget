@@ -254,6 +254,8 @@ describe('API /accounts', function() {
                     entries[0].type.should.be.equal('DEPOSIT');
                     entries[0].amount.should.be.equal(1000);
                     
+                    should.exist(result.body.balance);
+                    
                     done();
                 });
           });
@@ -286,6 +288,7 @@ describe('API /accounts', function() {
                     entries[0].type.should.be.equal('BILL');
                     entries[0].amount.should.be.equal(-1000);
                     
+                    should.exist(result.body.balance);
                     
                     done();
                 });
@@ -369,6 +372,8 @@ describe('API /accounts', function() {
                             var entries = result.body.entries;
                             should.exist(entries);
                             entries.should.be.instanceof(Array);
+                            
+                            should.exist(result.body.balance);
                             
                             done(); 
                         });
@@ -523,7 +528,11 @@ describe('API /accounts', function() {
                     request(globalServer)
                         .delete('/api/accounts/' + account_id + '/entries/' + entry_id)
                         .set('Authorization', 'JWT ' + token)
-                        .expect(204, done);
+                        .expect(200)
+                        .end(function(error, result) {
+                            should.exist(result.body.balance);
+                            done();
+                        });
                 });
           });
           
