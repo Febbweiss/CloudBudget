@@ -568,5 +568,48 @@ describe('API /accounts', function() {
                 });
           });
        });
+       
+       describe('* Retrieve', function() {
+          it('should retrieve all entries', function(done) {
+              request(globalServer)
+                .get('/api/accounts/' + account_id + '/entries')
+                .set('Authorization', 'JWT ' + token)
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .end(function(errors, result) {
+                   should.not.exist(errors);
+                   
+                   var entries = result.body.entries;
+                   should.exist(entries);
+                   entries.should.be.instanceof(Array);
+                   
+                   var balance = result.body.balance;
+                   should.exist(balance);
+                   balance.should.be.instanceof(Number);
+                   done(); 
+                });
+          });
+          
+          it('should fail to retrieve entries for unknown account', function(done) {
+              request(globalServer)
+                .get('/api/accounts/' + token + '/entries')
+                .set('Authorization', 'JWT ' + token)
+                .expect(404, done);
+          });
+          
+          it('should fail to retrieve entries for invalid account', function(done) {
+              request(globalServer)
+                .get('/api/accounts/1/entries')
+                .set('Authorization', 'JWT ' + token)
+                .expect(404, done);
+          });
+          
+          it('should fail to retrieve entries for the not owned given account', function(done) {
+              request(globalServer)
+                .get('/api/accounts/' + account_id + '/entries')
+                .set('Authorization', 'JWT ' + hacker_token)
+                .expect(401, done);
+          });
+       });
     });
 });

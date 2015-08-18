@@ -252,11 +252,7 @@ module.exports = {
     
     list_entries : function(request, response) {
         return check_account(request, response, function(errors, account) {
-             Entry.find({
-                    account_id: account.id
-                })
-                .sort('-date')
-                .exec(function(errors, entries) {
+            list_entries(account.id, null, function(errors, entries) {
                     if( errors ) {
                         return Handler.errorHandler(errors, 500, response);
                     }
