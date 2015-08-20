@@ -3,6 +3,3 @@ node_js:
   - "0.10"
 services:
   - mongodb
-before_script:
-  - sleep 15
-  - mongo cloudbudget_test
