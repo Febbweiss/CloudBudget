@@ -25,6 +25,7 @@
     },
     "scripts": {
         "test": "NODE_ENV=test mocha",
-        "start": "app.js"
+        "start": "app.js",
+        "stop": "pkill --signal SIGINT CloudBudget"
     }
 }

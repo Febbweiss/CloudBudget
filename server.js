@@ -52,6 +52,8 @@ require('./app/routes')(app);
 this.app = app;
 this.server = server;
 
+process.title = 'CloudBudget';
+
 exports.listen = function () {
     if( process.env.NODE_ENV !== 'test' ) {
         console.log('Server running in ' + process.env.NODE_ENV + ' mode on port ' + this.server.port );
