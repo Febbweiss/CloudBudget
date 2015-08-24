@@ -25,8 +25,8 @@
     "supertest": "~1.0.1"
   },
   "scripts": {
-    "test": "NODE_ENV=test mocha",
-    "test_travis": "NODE_ENV=test ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "test-local": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
     "start": "app.js",
     "stop": "pkill -SIGINT CloudBudget"
   }
