@@ -1,31 +1,33 @@
 {
-    "name": "cloud-budget",
-    "main": "app.js",
-    "dependencies": {
-        "express": "~4.5.1",
-        "mongoose": "~4.0.8",
-        "body-parser": "~1.4.2",
-        "method-override": "~2.0.2",
-        "morgan": "~1.6.0",
-        "file-stream-rotator": "~0.0.6",
-        "errorhandler": "~1.4.1",
-        
-        "jsonwebtoken": "~5.0.4",
-        "bcrypt": "~0.8.3",
-        
-        "passport": "~0.2.2",
-        "passport-local": "~1.0.0",
-        "passport-jwt": "~1.1.0"
-    },
-    "devDependencies": {
-        "mocha": "~2.2.5",
-        "supertest": "~1.0.1",
-        "should": "~7.0.2",
-        "sinon": "~1.15.4"
-    },
-    "scripts": {
-        "test": "NODE_ENV=test mocha",
-        "start": "app.js",
-        "stop": "pkill -SIGINT CloudBudget"
-    }
+  "name": "cloud-budget",
+  "main": "app.js",
+  "dependencies": {
+    "bower": "~1.5.1",
+    "express": "~4.5.1",
+    "mongoose": "~4.0.8",
+    "body-parser": "~1.4.2",
+    "method-override": "~2.0.2",
+    "morgan": "~1.6.0",
+    "file-stream-rotator": "~0.0.6",
+    "errorhandler": "~1.4.1",
+    "jsonwebtoken": "~5.0.4",
+    "bcrypt": "~0.8.3",
+    "passport": "~0.2.2",
+    "passport-local": "~1.0.0",
+    "passport-jwt": "~1.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.3.18",
+    "mocha": "~2.2.5",
+    "should": "~7.0.2",
+    "sinon": "~1.15.4",
+    "supertest": "~1.0.1"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha",
+    "test_travis": "NODE_ENV=test ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "start": "app.js",
+    "stop": "pkill -SIGINT CloudBudget"
+  }
 }

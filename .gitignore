@@ -3,3 +3,5 @@ logs/*
 data/*
 mongod*
 public/libs/*
+coverage/*
+npm-debug.log
