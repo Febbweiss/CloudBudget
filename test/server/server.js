@@ -1,6 +1,6 @@
 var should = require('should'), 
     request = require('supertest'),
-    app  = require('../server.js'),
+    app  = require('../../server.js'),
     globalServer;
 
 describe('Static resources', function(){

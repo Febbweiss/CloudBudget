@@ -1,11 +1,11 @@
 var should          = require('should'), 
     request         = require('supertest'),
-    app             = require('../server.js'),
+    app             = require('../../server.js'),
     mongoose        = require('mongoose'),
     User            = mongoose.model('User'),
     Db              = require('./db.js'),
     sinon           = require('sinon'),
-    EventEmitter    = require('../app/events/listeners'),
+    EventEmitter    = require('../../app/events/listeners'),
     globalServer, token, hacker_token, account_id, user_id;
 
 describe('API /users', function() {
