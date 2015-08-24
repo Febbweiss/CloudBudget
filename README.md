@@ -1,1 +1,1 @@
-Work in progress [![Build Status](https://travis-ci.org/Febbweiss/CloudBudget.svg?branch=master)](https://travis-ci.org/Febbweiss/CloudBudget)
+Work in progress [![Build Status](https://travis-ci.org/Febbweiss/CloudBudget.svg?branch=master)](https://travis-ci.org/Febbweiss/CloudBudget) [![Coverage Status](https://coveralls.io/repos/Febbweiss/CloudBudget/badge.svg?branch=master&service=github)](https://coveralls.io/github/Febbweiss/CloudBudget?branch=master)
