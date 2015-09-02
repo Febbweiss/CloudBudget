@@ -1,6 +1,6 @@
 var should      = require('should'), 
     request     = require('supertest'),
-    app         = require('../../server.js'),
+    app         = require('../server.js'),
     Db          = require('./db.js'),
     globalServer, token, hacker_token, account_id;
 

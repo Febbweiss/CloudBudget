@@ -1,6 +1,6 @@
 var mongoose    = require('mongoose'),
     jwt         = require('jsonwebtoken'),
-    security    = require('../../config/security');
+    security    = require('../config/security');
     
 
 var USER_ID = '55c9e2e3d300cc798928cc87',
