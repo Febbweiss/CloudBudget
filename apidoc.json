@@ -1,0 +1,7 @@
+{
+    "name": "CloudBudget API",
+    "version": "1.0.0",
+    "description": "An API to manage CloudBudget",
+    "title": "CloudBudget API",
+    "url" : "http://cloudbudget.pavnay.fr/api"
+}
