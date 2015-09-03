@@ -45,11 +45,9 @@ module.exports = function(app) {
          * @apiName Logout
          * @apiGroup Users
          *
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * 
          * @apiSuccessExample Success-Response:
          *     HTTP/1.1 200 OK
@@ -118,11 +116,9 @@ module.exports = function(app) {
          * @apiGroup Users
          *
          * @apiHeader {String} Content-Type application/json
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          *
          * @apiSuccess (204) -
          * @apiSuccessExample Success-Response:

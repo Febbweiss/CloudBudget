@@ -18,11 +18,9 @@ module.exports = function(app) {
          * 
          * @apiHeader {String} Content-Type application/json
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found
@@ -84,11 +82,9 @@ module.exports = function(app) {
          * 
          * @apiParam {String} account_id The account to delete
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found
@@ -119,11 +115,9 @@ module.exports = function(app) {
          * 
          * @apiHeader {String} Content-Type application/json
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found
@@ -188,11 +182,9 @@ module.exports = function(app) {
          * 
          * @apiHeader {String} Content-Type application/json
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found
@@ -271,11 +263,9 @@ module.exports = function(app) {
          * 
          * @apiHeader {String} Content-Type application/json
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found
@@ -349,11 +339,9 @@ module.exports = function(app) {
          * 
          * @apiHeader {String} Content-Type application/json
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found
@@ -418,11 +406,9 @@ module.exports = function(app) {
          * @apiParam {String} account_id The owner account
          * @apiParam {String} entry_id The entry to delete
          * 
-         * @apiHeader {String} Authentication The valid JWT token provided by the {post} /users/login resource
-         * @apiHeaderExample {string} Authentication header example:
-         *     { 
-         *      "Authentication": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
-         *      }
+         * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+         * @apiHeaderExample {string} Authorization header example:
+         *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
          * @apiError (401) {json} AuthenticationFailed The user can't be found.
          * @apiErrorExample AuthenticationFailed:
          *     HTTP/1.1 401 Not Found

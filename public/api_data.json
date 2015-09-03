@@ -47,15 +47,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -144,15 +144,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -247,15 +247,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -372,15 +372,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -539,15 +539,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -671,15 +671,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -835,15 +835,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -1056,15 +1056,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
@@ -1221,15 +1221,15 @@
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Authentication",
+            "field": "Authorization",
             "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
           }
         ]
       },
       "examples": [
         {
-          "title": "Authentication header example:",
-          "content": "{ \n \"Authentication\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\" \n }",
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
           "type": "string"
         }
       ]
