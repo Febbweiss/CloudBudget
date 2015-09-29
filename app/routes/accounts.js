@@ -3,6 +3,57 @@ var passport            = require('../security/passport'),
     
 module.exports = function(app) {
     /**
+     * @api {get} /accounts List accounts
+     * @apiVersion 1.0.0
+     * @apiName Retrieve accounts
+     * @apiGroup Accounts
+     * 
+     * @apiHeader {String} Content-Type application/json
+     * 
+     * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+     * @apiHeaderExample {string} Authorization header example:
+     *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
+     * @apiError (401) {json} AuthenticationFailed The user can't be found.
+     * @apiErrorExample AuthenticationFailed:
+     *     HTTP/1.1 401 Not Found
+     *     {
+     *       "message": "Authentication failed"
+     *     }
+     *
+     * @apiSuccess (200) {json} accounts List of all accounts and their (sub)categories.
+     * @apiSuccessExample Success-Response:
+     *     HTTP/1.1 200 OK
+     *      [{
+     *          "name": "Home",
+     *          "reference": "1234567890",
+     *          "user_id": "55e6e4e005230f49271c7078",
+     *          "_id": "55e8218912c65a1730c34858",
+     *          "created_at": "2015-09-03T10:31:37.889Z",
+     *          "categories": [
+     *              {
+     *                  "key": "alimony_payments",
+     *                  "label": "Alimony Payments",
+     *                  "_id": "55e8218912c65a1730c34859",
+     *                  "sub_categories": []
+     *              },
+     *              {
+     *                  "key": "automobile_expenses",
+     *                  "label": "Automobile Expenses",
+     *                  "_id": "55e8218912c65a1730c3485a",
+     *                  "sub_categories": [
+     *                      {
+     *                          "label": "Car Payment",
+     *                          "key": "car_payment",
+     *                          "_id": "55e8218912c65a1730c3485d"
+     *                      }
+     *                  ]
+     *              }
+     *          ]
+     *      }]
+     */
+    app.get('/api/accounts', passport.jwt, AccountController.retrieve_accounts);
+    
+    /**
          * @api {post} /accounts Create account
          * @apiVersion 1.0.0
          * @apiName Create account

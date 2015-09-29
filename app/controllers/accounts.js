@@ -117,6 +117,18 @@ module.exports = {
         });
     },
     
+    retrieve_accounts : function(request, response) {
+        Account
+            .find({user_id: request.user.id})
+            .sort({name: 1})
+            .exec(function(errors, accounts) {
+                if( errors ) {
+                    Handler.errorHandler(errors, 400, response);
+                }
+                return response.json(accounts);
+        });
+    },
+    
     modify : function(request, response) {
         return check_account(request, response, function(error, account) {
             account.name = request.body.name;

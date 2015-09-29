@@ -464,6 +464,83 @@
     "groupTitle": "Accounts"
   },
   {
+    "type": "get",
+    "url": "/accounts",
+    "title": "List accounts",
+    "version": "1.0.0",
+    "name": "Retrieve_accounts",
+    "group": "Accounts",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
+          "type": "string"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "<p>json</p> ",
+            "optional": false,
+            "field": "AuthenticationFailed",
+            "description": "<p>The user can't be found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "AuthenticationFailed:",
+          "content": "HTTP/1.1 401 Not Found\n{\n  \"message\": \"Authentication failed\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "<p>json</p> ",
+            "optional": false,
+            "field": "accounts",
+            "description": "<p>List of all accounts and their (sub)categories.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [{\n     \"name\": \"Home\",\n     \"reference\": \"1234567890\",\n     \"user_id\": \"55e6e4e005230f49271c7078\",\n     \"_id\": \"55e8218912c65a1730c34858\",\n     \"created_at\": \"2015-09-03T10:31:37.889Z\",\n     \"categories\": [\n         {\n             \"key\": \"alimony_payments\",\n             \"label\": \"Alimony Payments\",\n             \"_id\": \"55e8218912c65a1730c34859\",\n             \"sub_categories\": []\n         },\n         {\n             \"key\": \"automobile_expenses\",\n             \"label\": \"Automobile Expenses\",\n             \"_id\": \"55e8218912c65a1730c3485a\",\n             \"sub_categories\": [\n                 {\n                     \"label\": \"Car Payment\",\n                     \"key\": \"car_payment\",\n                     \"_id\": \"55e8218912c65a1730c3485d\"\n                 }\n             ]\n         }\n     ]\n }]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/accounts.js",
+    "groupTitle": "Accounts"
+  },
+  {
     "type": "post",
     "url": "/accounts/:account_id/entries",
     "title": "Create entry",

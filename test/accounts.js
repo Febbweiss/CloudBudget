@@ -17,6 +17,41 @@ describe('API /accounts', function() {
     after( function() {
         globalServer.close(); 
     });
+    
+    describe('* List', function() {
+        it('should return the list of accounts', function(done) {
+            request(globalServer)
+                .get('/api/accounts')
+                .set('Authorization', 'JWT ' + token)
+                .set('Accept', 'application/json')
+                .expect(200)
+                .expect('Content-Type', /json/)
+                .end( function(error, result) {
+                    should.not.exist(error);
+                    var accounts = result.body;
+                    should.exist(accounts);
+                    accounts.should.be.instanceof(Array).and.have.lengthOf(1);
+                    var account = accounts[0];
+                    account._id.should.be.equal(account_id);
+                    account.name.should.be.equal('Default');
+                    account.reference.should.be.equal('1234567890');
+                    done();
+                });
+        });
+        
+        it('should fail to list accounts without valid token', function(done) {
+          request(globalServer)
+                .get('/api/accounts')
+                .set('Authorization', 'JWT fake')
+                .expect(401, done);
+       });
+       
+       it('should fail to list accounts without token', function(done) {
+          request(globalServer)
+                .get('/api/accounts')
+                .expect(401, done);
+       });
+    });
 
     describe('* Creation', function() {
        it('should create an account', function(done) {
