@@ -120,6 +120,7 @@ module.exports = {
     retrieve_accounts : function(request, response) {
         Account
             .find({user_id: request.user.id})
+            .select({categories: 0})
             .sort({name: 1})
             .exec(function(errors, accounts) {
                 if( errors ) {
