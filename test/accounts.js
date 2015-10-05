@@ -260,7 +260,55 @@ describe('API /accounts', function() {
     });
     
     describe('* Entries', function() {
-       describe('* Creation', function() {
+        describe('* Listing', function() {
+            it('should list all entries', function(done) {
+                request(globalServer)
+                .get('/api/accounts/' + account_id + '/entries')
+                .set('Authorization', 'JWT ' + token)
+                .expect(200)
+                .expect('Content-Type', /json/)
+                .end(function(error, result) {
+                    should.not.exist(error);
+                    
+                    var entry = result.body.entry;
+                    should.not.exist(entry);
+                    
+                    var entries = result.body.entries;
+                    should.exist(entries);
+                    entries.should.be.instanceof(Array).and.have.lengthOf(1);
+                    new Date(entries[0].date).should.eql(new Date('2015-08-13'))
+                    entries[0].type.should.be.equal('BILL');
+                    entries[0].amount.should.be.equal(-100);
+                    
+                    should.exist(result.body.balance);
+                    
+                    done();
+                });
+            });
+            
+            it('should fail to list entries for unknown account', function(done) {
+                request(globalServer)
+                .get('/api/accounts/' + token + '/entries')
+                .set('Authorization', 'JWT ' + token)
+                .expect(404, done);
+            });
+            
+            it('should fail to list entries for invalid account', function(done) {
+                request(globalServer)
+                .get('/api/accounts/1/entries')
+                .set('Authorization', 'JWT ' + token)
+                .expect(404, done);
+            });
+            
+            it('should fail to list entries for not owned account', function(done) {
+                request(globalServer)
+                .get('/api/accounts/' + account_id + '/entries')
+                .set('Authorization', 'JWT ' + hacker_token)
+                .expect(401, done);
+            });
+        });
+        
+        describe('* Creation', function() {
           it('should create an entry with minimal data (DEPOSIT)' , function(done) {
               request(globalServer)
                 .post('/api/accounts/' + account_id + '/entries')

@@ -830,6 +830,110 @@ define({ "api": [
     "groupTitle": "Entries"
   },
   {
+    "type": "get",
+    "url": "/accounts/:account_id/entries",
+    "title": "List account entries",
+    "version": "1.0.0",
+    "name": "List_entries",
+    "group": "Entries",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "account_id",
+            "description": "<p>The account id to retrieve</p> "
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p> "
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The valid JWT token provided by the {post} /users/login resource</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Authorization header example:",
+          "content": "\"Authorization\": \"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ\"",
+          "type": "string"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "<p>json</p> ",
+            "optional": false,
+            "field": "AuthenticationFailed",
+            "description": "<p>The user can't be found.</p> "
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "type": "<p>json</p> ",
+            "optional": false,
+            "field": "AccountNotFound",
+            "description": "<p>The account can't be found.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "AuthenticationFailed:",
+          "content": "HTTP/1.1 401 Not Found\n{\n  \"message\": \"Authentication failed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AccountNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n     \"message\": \"Unknown account\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "<p>json</p> ",
+            "optional": false,
+            "field": "entries",
+            "description": "<p>List of all account entries.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [\n     {\n         _id: '',\n         account_id: '1000',\n         type: 'DEPOSIT'\n         amount: 1000,\n         date: 2015-09-03T10:04:11.481Z\n     }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/routes/accounts.js",
+    "groupTitle": "Entries"
+  },
+  {
     "type": "post",
     "url": "/accounts/:account_id/entries/:entry_id",
     "title": "Modify entry",

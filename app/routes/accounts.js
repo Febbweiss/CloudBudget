@@ -295,6 +295,48 @@ module.exports = function(app) {
     app.put('/api/accounts/:account_id', passport.jwt, AccountController.modify);
 
     /**
+     * @api {get} /accounts/:account_id/entries List account entries
+     * @apiVersion 1.0.0
+     * @apiName List entries
+     * @apiGroup Entries
+     * 
+     * @apiParam {String} account_id The account id to retrieve
+     *
+     * @apiHeader {String} Content-Type application/json
+     * 
+     * @apiHeader {String} Authorization The valid JWT token provided by the {post} /users/login resource
+     * @apiHeaderExample {string} Authorization header example:
+     *      "Authorization": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNTVlNmU0ZTAwNTIzMGY0OTI3MWM3MDc4IiwiaWF0IjoxNDQxMTk1MjMyfQ.eWh9nuXVVSVDKKCmTMDoc9FBU55-KgkiOJH1hrdQRTQ" 
+     * @apiError (401) {json} AuthenticationFailed The user can't be found.
+     * @apiErrorExample AuthenticationFailed:
+     *     HTTP/1.1 401 Not Found
+     *     {
+     *       "message": "Authentication failed"
+     *     }
+     *
+     * @apiSuccess (200) {json} entries List of all account entries.
+     * @apiSuccessExample Success-Response:
+     *     HTTP/1.1 200 OK
+     *      [
+     *          {
+     *              _id: '',
+     *              account_id: '1000',
+     *              type: 'DEPOSIT'
+     *              amount: 1000,
+     *              date: 2015-09-03T10:04:11.481Z
+     *          }
+     *      ]
+     * 
+     * @apiError (404) {json} AccountNotFound The account can't be found.
+     * @apiErrorExample AccountNotFound:
+     *     HTTP/1.1 404 Not Found
+     *      {
+     *          "message": "Unknown account"
+     *      }
+     */
+    app.get('/api/accounts/:account_id/entries', passport.jwt, AccountController.list_entries);
+
+    /**
          * @api {post} /accounts/:account_id/entries Create entry
          * @apiVersion 1.0.0
          * @apiName Create entry

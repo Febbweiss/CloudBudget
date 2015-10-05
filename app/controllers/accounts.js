@@ -79,8 +79,8 @@ var list_entries = function(account_id, entry, callback ) {
         }
         
         Entry
-            .find({account_id: account_id})
-            .sort({date: -1})
+            .find({account_id: account_id}, {created_at: 0, __v: 0})
+            .sort({date: -1,})
             .exec(function(errors, entries) {
                 if( errors ) {
                     return callback(errors);
@@ -88,7 +88,7 @@ var list_entries = function(account_id, entry, callback ) {
                 return callback( null, {
                     entry: entry,
                     entries: entries,
-                    balance: data[0].balance
+                    balance: data ? data[0].balance : 0
                 });
         });
     });
@@ -175,7 +175,7 @@ module.exports = {
                 sub_category: data.sub_category ? new ObjectId(data.sub_category) : undefined,
                 label: data.label,
                 amount: data.amount,
-                date: new Date(data.date),
+                date: data.date,
                 type: data.amount >= 0 ? 'DEPOSIT' : 'BILL'
             });
             
