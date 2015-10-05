@@ -88,7 +88,7 @@ var list_entries = function(account_id, entry, callback ) {
                 return callback( null, {
                     entry: entry,
                     entries: entries,
-                    balance: data ? data[0].balance : 0
+                    balance: data && data.length > 0 ? data[0].balance : 0
                 });
         });
     });
